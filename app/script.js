@@ -3,14 +3,13 @@ import { render } from 'react-dom';
 
 const App = () => {
   const [status, setStatus] = useState('off');
-  const [time, setTime] = useState(0); // Inicjalizujemy czas jako 0
-  const [timer, setTimer] = useState(null); // State przechowujący timer
+  const [time, setTime] = useState(0);
+  const [timer, setTimer] = useState(null);
 
-  // Funkcja formatująca czas w formacie mm:ss
   const formatTime = (totalSeconds) => {
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    // Dodajemy zero przed liczbami mniejszymi niż 10
+
     const formattedMinutes = String(minutes).padStart(2, '0');
     const formattedSeconds = String(seconds).padStart(2, '0');
     return `${formattedMinutes}:${formattedSeconds}`;
@@ -25,16 +24,16 @@ const App = () => {
       // Zerowanie czasu i zmiana statusu
       if (status === 'work') {
         setStatus('rest');
-        setTime(20); // Ustawiamy 20 sekund dla odpoczynku
+        setTime(20); // 20 sekund dla odpoczynku
       } else if (status === 'rest') {
         setStatus('work');
-        setTime(1200); // Ustawiamy 20 minut dla pracy
+        setTime(1200); //  20 minut dla pracy
       }
     }
   }, [time, status]);
 
   const startTimer = () => {
-    setTime(1200); // Ustawiamy 20 minut na start
+    setTime(1200); //  20 minut na start
     setStatus('work');
     setTimer(
       setInterval(() => {
