@@ -27,7 +27,7 @@ const App = () => {
         setTime(20); // 20 sekund dla odpoczynku
       } else if (status === 'rest') {
         setStatus('work');
-        setTime(5); //  20 minut dla pracy
+        setTime(1200); //  20 minut dla pracy
       }
     }
   }, [time, status]);
@@ -39,7 +39,7 @@ const App = () => {
   }, [timer]);
 
   const startTimer = () => {
-    setTime(5); //  20 minut na start
+    setTime(1200); //  20 minut na start
     setStatus('work');
     setTimer(
       setInterval(() => {
