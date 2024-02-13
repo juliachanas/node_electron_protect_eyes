@@ -27,13 +27,19 @@ const App = () => {
         setTime(20); // 20 sekund dla odpoczynku
       } else if (status === 'rest') {
         setStatus('work');
-        setTime(1200); //  20 minut dla pracy
+        setTime(5); //  20 minut dla pracy
       }
     }
   }, [time, status]);
 
+  useEffect(() => {
+    return () => {
+      clearInterval(timer);
+    };
+  }, [timer]);
+
   const startTimer = () => {
-    setTime(1200); //  20 minut na start
+    setTime(5); //  20 minut na start
     setStatus('work');
     setTimer(
       setInterval(() => {
